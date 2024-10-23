@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+               
+        }
+        #color-display{
+            height: 50vh;
+            width: 50vw;
+            border:2px solid black;
+            border-radius: 25px;
+            display: flex;
+             text-align: center;
+             font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+              font-size:x-large; 
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+
+        }
+        #generate-button{
+            height: 50px;
+            width: 150px;
+            border:2px solid red;
+            border-radius: 50px ;
+        }
+
+    </style>
+</head>
+<body>
+   
+  <button id="color-display" onclick="generateColor()" >Click the button to generate a new color!</button>
+  <button id="generate-button" onclick="generateColor()">Generate Color</button>
+
+ 
+
+</body>
+
+    
+
+<script>
+    const colorDisplay = document.getElementById('color-display');
+    const generateButton = document.getElementById('generate-button');
+    
+    function generateColor() {
+      const randomColor = getRandomColor();
+      colorDisplay.style.backgroundColor = randomColor;
+      colorDisplay.textContent = `The new color is: ${randomColor}`;
+    }
+    
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+    
+    generateColor();
+    </script>
+    
+    
+</body>
+</html>
+   
